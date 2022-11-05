@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-
+import { AdminContainer, AdminHome, Course } from './pages/admin'
 import { HomeContainer, Home, CourseDetail } from './pages/home'
-import { AdminContainer } from './pages/admin'
 import { SignIn, SignUp } from './pages/login'
 
 
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -21,14 +21,14 @@ function App() {
             <Route path="/coursedetail" element={<CourseDetail />} />
           </Route>
 
-
-
           <Route path="/admin" element={< AdminContainer />} >
-            {/* <Route path="login" element={< AdminLogin />} /> */}
+            <Route path="" element={<Navigate to='/admin/home' />} />
+            <Route path="home" element={< AdminHome />} />
+            <Route path="course" element={< Course />} />
           </Route>
         </Routes>
-      </BrowserRouter>
 
+      </BrowserRouter>
     </div>
   );
 }
